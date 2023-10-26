@@ -1,10 +1,6 @@
 package com.eltex;
 import java.util.ArrayList;
 public class UserService {
-int temp;
-
-
-
 
     private User user = new User.Builder().build();
     ArrayList<User> userList = new ArrayList<>();
@@ -22,17 +18,14 @@ int temp;
             else{
                 changeById(user.getId(), user);
             }
-
-
         }
-
     }
 
     public void getById(int id) throws NotFoundException {
         try {
             if(getByIdx(id) >= 0){
             System.out.println(userList.get(getByIdx(id)));
-            }else {throw new NotFoundException("User not found with ID: " + id);}
+            }else {throw new NotFoundException("Нет юзера с таким ID: " + id);}
 
 
         }
@@ -63,7 +56,7 @@ int temp;
             if (getByIdx(id) >= 0) {
                 userList.remove(getByIdx(id));
             } else {
-                throw new NotFoundException("User not found with ID: " + id);
+                throw new NotFoundException("Нет юзера с таким ID: " + id);
             }
         }catch (NotFoundException exception){System.err.println(exception.getMessage());}
 
