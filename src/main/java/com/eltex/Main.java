@@ -15,7 +15,9 @@ public class Main {
         System.out.println("Лист до изменений");
         service.getAll();
         System.out.println("Поиск по id и последующее удаление");
-        service.getById(3);
+
+        service.getById(7);
+
         service.removeById(3);
         System.out.println("проверка save");
         service.save(new User(2,"g","g","g"));

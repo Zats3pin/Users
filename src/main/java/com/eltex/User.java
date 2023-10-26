@@ -47,8 +47,6 @@ public class User {
         this.login = login;
     }
 
-
-
     @Override
     public String toString()
     {
@@ -61,11 +59,6 @@ public class User {
     }
 
 
-
-
-
-
-
     public Builder builder(){
         return new Builder()
 
@@ -75,28 +68,6 @@ public class User {
                 .setAvatar(avatar)
                 ;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     static class Builder {
@@ -135,10 +106,5 @@ public class User {
         }
 
     }
-
-
-
-
-
 
 }

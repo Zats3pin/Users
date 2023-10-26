@@ -15,8 +15,8 @@ int temp;
             userList.add(user); // по заданию новые юзеры создаются только при id == 0;
         }
         else {
+
             if (getByIdx(user.getId()) == -1){
-                //вызываю эксепшен
 
             }
             else{
@@ -29,9 +29,17 @@ int temp;
     }
 
     public void getById(int id) throws NotFoundException {
-
+        try {
+            if(getByIdx(id) >= 0){
             System.out.println(userList.get(getByIdx(id)));
+            }else {throw new NotFoundException("User not found with ID: " + id);}
 
+
+        }
+
+        catch (NotFoundException exception){
+            System.err.println(exception.getMessage());
+        }
     }
 
 
@@ -43,12 +51,22 @@ int temp;
                 break;
             }
         }
+        if (index == -1) {
 
+        }
         return index;
     }
 
+
     public void removeById(int id){
-        userList.remove(getByIdx(id));
+        try {
+            if (getByIdx(id) >= 0) {
+                userList.remove(getByIdx(id));
+            } else {
+                throw new NotFoundException("User not found with ID: " + id);
+            }
+        }catch (NotFoundException exception){System.err.println(exception.getMessage());}
+
     }
 
 
@@ -105,9 +123,6 @@ int temp;
     public int getId(){
         return user.getId();
     }
-
-
-
 
 }
 
